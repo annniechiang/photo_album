@@ -1,0 +1,12 @@
+<table class="table table-striped">
+ <% @photo2s.each do |photo2| %>
+   <tr>
+     <td><%= photo2.title %></td>
+     <td><%= link_to 'Show', photo2_path(photo2) %></td>
+     <td><%= link_to 'Edit', edit_photo2_path(photo2) %></td>
+     <td><%= link_to 'Destroy', photo2_path(photo2), method: :delete, data:{ confirm: "Are you sure?" } %></td>
+   </tr>
+ <% end %>
+</table>
+
+<%= link_to 'New Photo', new_photo2_path %>
