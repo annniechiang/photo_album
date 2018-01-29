@@ -1,17 +1,7 @@
 class Api::V1::PhotosController < ApiController
   def index
     @photos = Photo2.all
-
     # 因在 config/routes.rb 裡有設定 defaults: {format: :json}，所以就算不用 render 來執行回傳參數，也還是會回傳 JSON
-    render json: {
-      data: @photos.map do |photo|
-        {
-          title: photo.title,
-          date: photo.date,
-          description: photo.description
-        }
-      end
-    }
   end
 
   def show
@@ -22,11 +12,7 @@ class Api::V1::PhotosController < ApiController
         status: 400
       }
     else
-      render json: {
-        title: @photo.title,
-        date: @photo.date,
-        description: @photo.description
-      }
+      render "api/v1/photos/show"
     end
   end
 
