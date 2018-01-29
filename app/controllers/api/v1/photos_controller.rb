@@ -1,4 +1,6 @@
 class Api::V1::PhotosController < ApiController
+  before_action :authenticate_user!, except: :index
+  
   def index
     @photos = Photo2.all
     # 因在 config/routes.rb 裡有設定 defaults: {format: :json}，所以就算不用 render 來執行回傳參數，也還是會回傳 JSON
