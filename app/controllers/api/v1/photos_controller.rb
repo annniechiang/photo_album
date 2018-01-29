@@ -44,6 +44,28 @@ class Api::V1::PhotosController < ApiController
     end
   end
 
+  def update
+    @photo = Photo2.find_by(id: params[:id])
+    if @photo.update(photo_params)
+      render json: {
+        message: "Photo updated successfully!",
+        result: @photo
+      }
+    else
+      render json: {
+        errors: @photo.errors
+      }
+    end
+  end
+
+  def destroy
+    @photo = Photo2.find_by(id: params[:id])
+    @photo.destroy
+    render json: {
+      message: "Photo destroy successfully!"
+    }
+  end
+
   private
 
   def photo_params
