@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'devise'
 gem 'rest-client'
+gem 'omniauth-facebook'
 
 group :production do
   gem 'pg'
